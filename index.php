@@ -2,7 +2,6 @@
     require ("connection.php");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +29,49 @@
         </div>
     </div>
 
-    <?php
-       // print_r($_SERVER['DOCUMENT_ROOT']);
-    ?>
+   <div class="container mt-5">
+        <table class="table table-hover text-center">
+            <thead class="bg-dark text-light">
+                <tr>
+                    <th width="10%" scope="col" class="rounded-start">Sr No</th>
+                    <th width="15%" scope="col">Image</th>
+                    <th width="10%" scope="col">Name</th>
+                    <th width="10%" scope="col">Price</th>
+                    <th width="35%" scope="col">Description</th>
+                    <th width="20%" scope="col" class="rounded-end">Action</th>
+                </tr>
+            </thead>
+
+            <tbody class="bg-white">
+                
+                <?php
+                   $query = "SELECT * FROM `product`";
+                   $result = mysqli_query($con, $query);
+                   $i=1;
+                   $fetch_src=FETCH_SRC;
+
+                   while ($fetch = mysqli_fetch_assoc($result))
+                   {
+                        echo<<<product
+                             <tr>
+                                <th scope="row">$i</th>
+                                <td img src="$fetch_src$fetch[image]" width="150px"></td>
+                                <td>$fetch[name]</td>
+                                <td>$fetch[price]</td>
+                                <td>$fetch[description]</td>
+                                <td>
+                                    <a>Edit</a>
+                                    <button>Delete</button>
+                                </td>
+
+                            </tr>
+                        product;
+                        $i++;
+                   }
+                ?>
+            </tbody>
+        </table>
+   </div>
 
     <div class="modal fade" id="addproduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
