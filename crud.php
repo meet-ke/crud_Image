@@ -18,6 +18,10 @@
         }
     }
 
+    function image_remove($img){
+        
+    }
+    
     if(isset($_POST['addproduct']))
     {
         foreach($_POST as $key => $value)
@@ -36,5 +40,12 @@
                 header("Location:index.php?alert=add_filed");
             }
         }
+    }
+
+    if(isset($_GET['rem']) && $_GET['rem']>0)
+    {
+        $query = "SELECT * FROM `product` WHERE id=$_GET[rem]";
+        $result=mysqli_query($con,$query);
+        $fetch=mysqli_fetch_array($result);  
     }
 ?>

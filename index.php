@@ -55,7 +55,7 @@
                         echo<<<product
                              <tr class="align-center">
                                 <th scope="row">$i</th>
-                                <td img src="$fetch_src$fetch[image]" width="150px"></td>
+                                <td><img src="$fetch_src$fetch[image]" width="150px"></td>
                                 <td>$fetch[name]</td>
                                 <td>$fetch[price]</td>
                                 <td>$fetch[description]</td>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" name="image" accept=".jpg,.png,.svg" required>
+                        <input type="file" class="form-control" name="image" accept=".jpeg,.png,.svg" required>
                         <label class="input-group-text" >Image</label>
                     </div>
                 </div>
@@ -111,6 +111,13 @@
         </div>
     </div> 
 
-    
+    <script>
+        function confirm_rem($id){
+            if(confitm("Are You Sure, you Want to delete this item ?")){
+                window.Location.href="crud.php?rem="+id;
+            }
+        }
+    </script>
+
 </body>
 </html>
