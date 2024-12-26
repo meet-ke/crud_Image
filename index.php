@@ -53,7 +53,7 @@
                    while ($fetch = mysqli_fetch_assoc($result))
                    {
                         echo<<<product
-                             <tr>
+                             <tr class="align-center">
                                 <th scope="row">$i</th>
                                 <td img src="$fetch_src$fetch[image]" width="150px"></td>
                                 <td>$fetch[name]</td>
@@ -61,7 +61,7 @@
                                 <td>$fetch[description]</td>
                                 <td>
                                     <a>Edit</a>
-                                    <button>Delete</button>
+                                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                                 </td>
 
                             </tr>
