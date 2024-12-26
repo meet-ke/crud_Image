@@ -31,7 +31,7 @@
     </div>
 
     <?php
-        print_r($_SERVER['DOCUMENT_ROOT']);
+       // print_r($_SERVER['DOCUMENT_ROOT']);
     ?>
 
     <div class="modal fade" id="addproduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
