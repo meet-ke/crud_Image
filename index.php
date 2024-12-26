@@ -61,7 +61,7 @@
                                 <td>$fetch[description]</td>
                                 <td>
                                     <a>Edit</a>
-                                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    <button onclick="confirm_rem($fetch[id])" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                                 </td>
 
                             </tr>
@@ -110,5 +110,7 @@
             </form>
         </div>
     </div> 
+
+    
 </body>
 </html>
