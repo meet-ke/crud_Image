@@ -19,7 +19,10 @@
     }
 
     function image_remove($img){
-        
+        if(unlink(UPLODE_SRC.$img)){
+            header("Location:index.php?alert=img_rem_fail");
+            exit;
+        }   
     }
     
     if(isset($_POST['addproduct']))
@@ -47,5 +50,16 @@
         $query = "SELECT * FROM `product` WHERE id=$_GET[rem]";
         $result=mysqli_query($con,$query);
         $fetch=mysqli_fetch_array($result);  
+
+        image_remove($fetch['image']);
+
+        $query="DELETE FROM `product` WHERE id='$_GET[rem]'";
+        if(mysqli_query( $con,$query)){
+            header("Location:index.php?success=removed");
+        }
+        else
+        {
+            header("Location:index.php?alert =removed_failed");
+        }
     }
 ?>

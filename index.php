@@ -49,7 +49,7 @@
                    $result = mysqli_query($con, $query);
                    $i=1;
                    $fetch_src=FETCH_SRC;
-
+  
                    while ($fetch = mysqli_fetch_assoc($result))
                    {
                         echo<<<product
@@ -112,8 +112,8 @@
     </div> 
 
     <script>
-        function confirm_rem($id){
-            if(confitm("Are You Sure, you Want to delete this item ?")){
+        function confirm_rem(id){
+            if(confirm("Are You Sure, you Want to delete this item ?")){
                 window.Location.href="crud.php?rem="+id;
             }
         }
